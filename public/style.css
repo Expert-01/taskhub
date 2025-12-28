@@ -588,6 +588,8 @@ body {
 
 
 
+
+
 body {
     line-height: 1.6;
     color: var(--text-primary);
@@ -597,7 +599,6 @@ body {
 
 }
 
-/* Ensure body is positioned for pseudo-element */
 body {
   position: relative;
   margin: 0;
@@ -606,26 +607,31 @@ body {
   min-height: 100vh;
 }
 
-/* Top ambient semi-circle gradient */
 body::before {
   content: "";
   position: absolute;
-  top: -180px; /* lift above content */
+  top: -180px;
   left: 50%;
-  transform: translateX(-50%) scaleX(1.5); /* wider semi-circle */
-  width: 700px;  /* width of semi-circle */
-  height: 400px; /* height of semi-circle */
+  transform: translateX(-50%) scaleX(1.5);
+  width: 800px;  /* wider */
+  height: 400px; /* taller for more impact */
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(800, 80, 80, 0.1) 40%,
-    rgba(150, 1, 1, 0.05) 70%,
+    rgba(0, 0, 0, 0.5) 0%,       /* much darker center */
+    rgba(60, 60, 60, 0.35) 40%,  /* mid gray */
+    rgba(120, 120, 120, 0.2) 70%,
     transparent 100%
   );
-  filter: blur(140px); /* soft glow */
-  z-index: -1; /* behind all content */
-  pointer-events: none; /* won’t block clicks */
+  filter: blur(150px); /* keeps it soft */
+  z-index: -1;
+  pointer-events: none;
 }
+
+
+
+
+
+
 
 /* ==================== */
 /* Layout */
