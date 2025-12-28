@@ -213,6 +213,12 @@ body::after {
     backdrop-filter: blur(10px);
     
 }
+nav a {
+    text-decoration: none; /* removes underline */
+    color: inherit;        /* inherits color from parent instead of default link color */
+    font-weight: normal;   /* resets bold if any */
+    background: none;      /* removes background if any */
+}
 
 .nav-link {
     display: flex;
