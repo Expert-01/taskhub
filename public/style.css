@@ -630,7 +630,23 @@ body::before {
 
 
 
-
+body::after {
+  content: "";
+  position: absolute;
+  top: -120px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(2);
+  width: 900px;
+  height: 350px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.3),
+    transparent 100%
+  );
+  filter: blur(180px);
+  z-index: -1;
+  pointer-events: none;
+}
 
 
 /* ==================== */
