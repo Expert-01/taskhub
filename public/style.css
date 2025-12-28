@@ -602,7 +602,7 @@ body {
     -moz-osx-font-smoothing: grayscale;
 
 }
-
+/*
 body {
   position: relative;
   margin: 0;
@@ -652,7 +652,7 @@ body::after {
   pointer-events: none;
 }
 
-
+*/
 /* ==================== */
 /* Layout */
 /* ==================== */
