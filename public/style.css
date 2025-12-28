@@ -588,10 +588,17 @@ body {
 
 
 body {
-
+    background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(80, 80, 80, 0.1) 40%,
+    rgba(150, 150, 150, 0.05) 70%,
+    transparent 100%
+  );
+  filter: blur(120px);
     line-height: 1.6;
     color: var(--text-primary);
-   background-color: var(--bg-secondary);
+  /* background-color: var(--bg-secondary);*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
@@ -728,6 +735,7 @@ button {
   margin: 0 10px;
 }
 
+/*
 .hero1 {
   position: relative;
   text-align: center;
@@ -756,7 +764,7 @@ button {
   z-index: 0;
 }
 
-
+*/
 
 
 
