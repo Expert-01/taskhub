@@ -94,9 +94,7 @@ body {
   transform: translateY(100%);
   animation: revealText 0.8s ease forwards;
   animation-delay: 0.6s;
-   h1{
-font-family: 'Azonix', sans-serif;
-}
+ 
    
 }
 
@@ -125,6 +123,7 @@ font-family: 'Azonix', sans-serif;
 /* Enhanced Header with Hamburger Menu */
 /* ==================== */
 .header-container {
+    font-family: 'Azonix', sans-serif;
     display: flex;
     justify-content: space-between;
     align-items: center;
