@@ -104,7 +104,7 @@
    opacity: 0;
   filter: blur(6px);
   animation: blurIn 1s ease forwards;
-  animation-delay: 0.5s;
+  animation-delay: 0.8s;
 }
 
 .hero-text span {
