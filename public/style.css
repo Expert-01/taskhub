@@ -2,6 +2,9 @@
   font-family: 'Azonix';
   src: url('Azonix.otf') format('opentype');
 }
+html, body {
+ overflow-x: hidden;
+}
 
 body {
    
