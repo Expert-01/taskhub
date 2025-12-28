@@ -514,6 +514,7 @@ button {
     padding: 40px 30px;
     border-radius: var(--border-radius);
     color: white;
+    margin-top: 30px;
     margin-bottom: 30px;
     box-shadow: var(--shadow-glossy);
     position: relative;
