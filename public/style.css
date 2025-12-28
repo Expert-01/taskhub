@@ -4,8 +4,7 @@
 }
 
 body {
-   overflow-x: hidden;
-   width: 100%;
+   
    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -137,11 +136,12 @@ body {
     gap: 20px;
     
 
-         .logo{
-            color: red;
-           }
+         
 }
 
+.logo{
+     color: red;
+           }
 /* Desktop Navigation */
 .desktop-nav {
     display: flex;
