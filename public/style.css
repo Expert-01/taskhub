@@ -136,6 +136,10 @@ body {
     align-items: center;
     gap: 20px;
     
+
+         .logo{
+            color: black;
+           }
 }
 
 /* Desktop Navigation */
