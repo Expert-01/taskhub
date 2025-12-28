@@ -4,9 +4,7 @@
   src: url('./fonts/Azonix.otf') format('opentype');
 }
 
-body {
-  font-family: 'Azonix', sans-serif;
-}
+
 
 
 
@@ -79,6 +77,9 @@ body {
 */
 
 .hero-text {
+  font-family: 'Azonix', sans-serif;
+
+
   position: relative;
   overflow: hidden;
 
