@@ -1,1 +1,251 @@
-hamd
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskHub RSU - Available Tasks</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <h1>TaskHub RSU</h1>
+                <p class="tagline">Earn. Help. Connect.</p>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="post-task.html" class="nav-link">Post Task</a>
+                <a href="my-tasks.html" class="nav-link">My Tasks</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Available Tasks</h2>
+            <p>Find tasks, earn money, and build your reputation</p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number" id="taskCount">0</span>
+                    <span class="stat-label">Active Tasks</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">₦2,500</span>
+                    <span class="stat-label">Avg. Reward</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Filters -->
+        <section class="filters">
+            <div class="filter-group">
+                <label for="sortBy">Sort by:</label>
+                <select id="sortBy" class="filter-select">
+                    <option value="newest">Newest First</option>
+                    <option value="reward-high">Highest Reward</option>
+                    <option value="reward-low">Lowest Reward</option>
+                    <option value="urgent">Most Urgent</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="filterStatus">Status:</label>
+                <select id="filterStatus" class="filter-select">
+                    <option value="all">All Tasks</option>
+                    <option value="open">Open Only</option>
+                    <option value="in-progress">In Progress</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Task List -->
+        <section class="task-list" id="taskList">
+            <!-- Tasks will be loaded here dynamically -->
+            <div class="loading">Loading tasks...</div>
+        </section>
+
+        <!-- Empty State (hidden by default) -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+            <h3>No tasks available</h3>
+            <p>Be the first to post a task and start earning!</p>
+            <a href="post-task.html" class="btn btn-primary">Post a Task</a>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 TaskHub RSU. Built for students, by students.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Home page specific logic
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTasks();
+            
+            // Filter listeners
+            document.getElementById('sortBy').addEventListener('change', loadTasks);
+            document.getElementById('filterStatus').addEventListener('change', loadTasks);
+        });
+
+        async function loadTasks() {
+            const taskList = document.getElementById('taskList');
+            const emptyState = document.getElementById('emptyState');
+            const taskCount = document.getElementById('taskCount');
+            
+            const sortBy = document.getElementById('sortBy').value;
+            const filterStatus = document.getElementById('filterStatus').value;
+            
+            taskList.innerHTML = '<div class="loading">Loading tasks...</div>';
+            
+            try {
+                // For now, use mock data - we'll connect to API later
+                const tasks = await getMockTasks();
+                
+                // Apply filters
+                let filteredTasks = tasks.filter(task => {
+                    if (filterStatus === 'all') return true;
+                    return task.status === filterStatus;
+                });
+                
+                // Apply sorting
+                filteredTasks.sort((a, b) => {
+                    switch(sortBy) {
+                        case 'reward-high':
+                            return b.reward - a.reward;
+                        case 'reward-low':
+                            return a.reward - b.reward;
+                        case 'urgent':
+                            return new Date(a.timeLimit) - new Date(b.timeLimit);
+                        case 'newest':
+                        default:
+                            return new Date(b.createdAt) - new Date(a.createdAt);
+                    }
+                });
+                
+                taskCount.textContent = filteredTasks.length;
+                
+                if (filteredTasks.length === 0) {
+                    taskList.style.display = 'none';
+                    emptyState.style.display = 'flex';
+                } else {
+                    taskList.style.display = 'grid';
+                    emptyState.style.display = 'none';
+                    renderTasks(filteredTasks);
+                }
+            } catch (error) {
+                taskList.innerHTML = '<div class="error">Failed to load tasks. Please refresh.</div>';
+            }
+        }
+
+        function renderTasks(tasks) {
+            const taskList = document.getElementById('taskList');
+            
+            taskList.innerHTML = tasks.map(task => `
+                <div class="task-card ${task.status}" data-task-id="${task.id}">
+                    <div class="task-header">
+                        <h3 class="task-title">${task.title}</h3>
+                        <span class="task-status status-${task.status}">${formatStatus(task.status)}</span>
+                    </div>
+                    
+                    <p class="task-description">${task.description}</p>
+                    
+                    <div class="task-meta">
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <polyline points="12 6 12 12 16 14"></polyline>
+                            </svg>
+                            <span>Expires: ${formatTimeLimit(task.timeLimit)}</span>
+                        </div>
+                        <div class="meta-item">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <span>${task.postedByName}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="task-footer">
+                        <div class="task-reward">
+                            <span class="reward-label">Reward:</span>
+                            <span class="reward-amount">₦${task.reward.toLocaleString()}</span>
+                        </div>
+                        <a href="task-detail.html?id=${task.id}" class="btn btn-secondary">View Details</a>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function formatStatus(status) {
+            const statusMap = {
+                'open': 'Open',
+                'in-progress': 'In Progress',
+                'completed': 'Completed'
+            };
+            return statusMap[status] || status;
+        }
+
+        function formatTimeLimit(timeLimit) {
+            const date = new Date(timeLimit);
+            const now = new Date();
+            const diffHours = Math.floor((date - now) / (1000 * 60 * 60));
+            
+            if (diffHours < 0) return 'Expired';
+            if (diffHours < 1) return 'Less than 1 hour';
+            if (diffHours < 24) return `${diffHours} hours`;
+            
+            const diffDays = Math.floor(diffHours / 24);
+            return `${diffDays} day${diffDays > 1 ? 's' : ''}`;
+        }
+
+        // Mock data function - we'll replace this with API calls later
+        async function getMockTasks() {
+            return [
+                {
+                    id: "1",
+                    title: "Laundry Pickup from Hostel A",
+                    description: "Need someone to pick up laundry from Hostel A and drop at the laundry service",
+                    reward: 500,
+                    postedBy: "user1",
+                    postedByName: "Chidi O.",
+                    timeLimit: "2024-12-28T18:00:00Z",
+                    status: "open",
+                    acceptedBy: null,
+                    createdAt: "2024-12-27T10:00:00Z"
+                },
+                {
+                    id: "2",
+                    title: "Assignment Typing - 5 Pages",
+                    description: "Need handwritten assignment typed in MS Word with proper formatting",
+                    reward: 1000,
+                    postedBy: "user2",
+                    postedByName: "Amara K.",
+                    timeLimit: "2024-12-29T12:00:00Z",
+                    status: "open",
+                    acceptedBy: null,
+                    createdAt: "2024-12-27T11:30:00Z"
+                },
+                {
+                    id: "3",
+                    title: "Room Cleaning - Quick Tidy",
+                    description: "Need my room tidied up before guests arrive. Just organizing and surface cleaning.",
+                    reward: 800,
+                    postedBy: "user1",
+                    postedByName: "Chidi O.",
+                    timeLimit: "2024-12-28T15:00:00Z",
+                    status: "in-progress",
+                    acceptedBy: "user3",
+                    createdAt: "2024-12-27T09:00:00Z"
+                }
+            ];
+        }
+    </script>
+</body>
+</html>
