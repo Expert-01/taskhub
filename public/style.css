@@ -618,8 +618,8 @@ body::before {
   background: radial-gradient(
     ellipse at center,
     rgba(0, 0, 0, 0.15) 0%,
-    rgba(80, 80, 80, 0.1) 40%,
-    rgba(150, 150, 150, 0.05) 70%,
+    rgba(800, 80, 80, 0.1) 40%,
+    rgba(150, 1, 1, 0.05) 70%,
     transparent 100%
   );
   filter: blur(140px); /* soft glow */
