@@ -144,7 +144,8 @@ body::after {
 
         h1{
              font-family: 'Poppins', sans-serif;
-             fomt-weight: 300;
+             font-weight: 300;
+             color: #121212;
 
 }
 
