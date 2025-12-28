@@ -189,7 +189,7 @@
 }
 
 .mobile-menu-btn.active .hamburger-line:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -9px);
+    transform: rotate(-45deg) translate(0px, -0px);
 }
 
 /* Mobile Navigation */
