@@ -219,11 +219,13 @@ body::after {
     align-items: center;
     gap: 8px;
     padding: 10px 16px;
+    text-decoration: none;
 }
 
 .nav-link svg {
     width: 18px;
     height: 18px;
+
 }
 
 /* User Profile (Desktop) */
