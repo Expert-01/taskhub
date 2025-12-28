@@ -1,4 +1,4 @@
-
+/*
 :root {
     --primary-color: #6366f1;
     --primary-dark: #4f46e5;
@@ -25,6 +25,48 @@
     
     --transition: all 0.3s ease;
 }
+
+*/
+
+
+
+:root {
+    --primary-color: #1a1a1a;
+    --primary-dark: #000000;
+    --primary-light: #333333;
+    --secondary-color: #10b981;
+    --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-tertiary: #f0f1f3;
+    --bg-black: #1a1a1a;
+    --bg-black-light: #2a2a2a;
+    
+    --border-color: #e5e7eb;
+    --border-radius: 12px;
+    --border-radius-sm: 8px;
+    
+    /* Enhanced shadows for glossy effect */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-glossy: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+    
+    /* Glossy gradient overlays */
+    --gradient-glossy: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    --gradient-black: linear-gradient(135deg, #1a1a1a 0%, #000000 100%);
+    --gradient-black-shine: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    
+    --transition: all 0.3s ease;
+}
+
+
 
 * {
     margin: 0;
