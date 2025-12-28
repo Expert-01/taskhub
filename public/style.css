@@ -87,6 +87,9 @@ body {
   filter: blur(6px);
   animation: blurIn 1s ease forwards;
   animation-delay: 0.8s;
+
+        h1{
+             font-family: 'Poppins', sans-serif;
 }
 
 .hero-text span {
