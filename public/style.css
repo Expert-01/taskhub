@@ -1,11 +1,11 @@
-
 @font-face {
   font-family: 'Azonix';
-  src: url('./fonts/Azonix.otf') format('opentype');
+  src: url('Azonix.otf') format('opentype');
 }
 
-
-
+body {
+  font-family: 'Azonix', sans-serif;
+}
 
 
 
