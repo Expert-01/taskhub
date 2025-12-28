@@ -81,7 +81,7 @@
 
 
 
-.hero-text {
+/*.hero-text {
   opacity: 0;
   filter: blur(6px);
   animation: blurIn 1s ease forwards;
@@ -95,7 +95,25 @@
   }
 }
 
+*/
 
+.hero-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-text span {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: revealText 0.8s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes revealText {
+  to {
+    transform: translateY(0);
+  }
+}
 
 * {
     margin: 0;
