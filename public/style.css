@@ -379,6 +379,55 @@
 
 
 
+/* ==================== */
+/* Auth Buttons */
+/* ==================== */
+.btn-auth {
+    padding: 10px 20px;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.user-profile.desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.user-profile.desktop-nav:hover {
+    background-color: transparent;
+}
+
+/* Mobile Auth Buttons */
+.mobile-auth-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 20px;
+    margin-top: 10px;
+}
+
+.mobile-auth-buttons .btn {
+    justify-content: center;
+}
+
+/* Update mobile user profile for welcome banner */
+.mobile-user-profile .mobile-user-name {
+    font-size: 18px;
+}
+
+.mobile-user-profile .mobile-user-reputation {
+    font-size: 13px;
+}
+
+
+
+
+
+
 
 
 
