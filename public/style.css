@@ -425,7 +425,125 @@
 
 
 
+/* Auth Navigation Styles */
+.nav-link-primary {
+    background: var(--gradient-black) !important;
+    color: white !important;
+    position: relative;
+    overflow: hidden;
+}
 
+.nav-link-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-glossy);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.nav-link-primary:hover {
+    background: var(--gradient-black-shine) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.nav-link-primary:hover::before {
+    opacity: 1;
+}
+
+/* Mobile Welcome Section */
+.mobile-welcome {
+    text-align: center;
+}
+
+.mobile-welcome h3 {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+
+.mobile-welcome p {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Mobile Primary Link */
+.mobile-nav-link-primary {
+    background: var(--gradient-black);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-nav-link-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-glossy);
+    opacity: 0;
+    transition: var(--transition);
+    z-index: 0;
+}
+
+.mobile-nav-link-primary:hover::before {
+    opacity: 1;
+}
+
+.mobile-nav-link-primary svg,
+.mobile-nav-link-primary span {
+    position: relative;
+    z-index: 1;
+}
+
+.mobile-nav-link-primary:hover {
+    background: var(--gradient-black-shine);
+}
+
+/* Mobile Info Section */
+.mobile-nav-info {
+    padding: 0 5px;
+}
+
+.info-card {
+    display: flex;
+    gap: 15px;
+    padding: 20px;
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius-sm);
+    border-left: 4px solid var(--primary-color);
+}
+
+.info-card svg {
+    flex-shrink: 0;
+    color: var(--primary-color);
+}
+
+.info-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text-primary);
+}
+
+.info-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Adjust mobile nav content spacing for auth version */
+.mobile-nav-content {
+    padding: 80px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
 
 
 
