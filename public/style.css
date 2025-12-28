@@ -588,20 +588,42 @@ body {
 
 
 body {
-    background: radial-gradient(
-    ellipse at center,
-    rgba(0, 0, 0, 0.15) 0%,
-    rgba(80, 80, 80, 0.1) 40%,
-    rgba(150, 150, 150, 0.05) 70%,
-    transparent 100%
-  );
-  filter: blur(120px);
     line-height: 1.6;
     color: var(--text-primary);
   /* background-color: var(--bg-secondary);*/
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
+}
+
+/* Ensure body is positioned for pseudo-element */
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background: #fff; /* base white background */
+  min-height: 100vh;
+}
+
+/* Top ambient semi-circle gradient */
+body::before {
+  content: "";
+  position: absolute;
+  top: -180px; /* lift above content */
+  left: 50%;
+  transform: translateX(-50%) scaleX(1.5); /* wider semi-circle */
+  width: 700px;  /* width of semi-circle */
+  height: 400px; /* height of semi-circle */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(80, 80, 80, 0.1) 40%,
+    rgba(150, 150, 150, 0.05) 70%,
+    transparent 100%
+  );
+  filter: blur(140px); /* soft glow */
+  z-index: -1; /* behind all content */
+  pointer-events: none; /* won’t block clicks */
 }
 
 /* ==================== */
