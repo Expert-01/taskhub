@@ -430,7 +430,8 @@ body {
 */
 /* ==================== */
 /* Hero Section */
-/* ==================== */
+/* ==================== 
+
 .hero {
     background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     padding: 40px 30px;
@@ -438,6 +439,140 @@ body {
     color: white;
     margin-bottom: 30px;
     box-shadow: var(--shadow-lg);
+}
+*/
+.hero {
+    background: var(--gradient-black);
+    padding: 40px 30px;
+    border-radius: var(--border-radius);
+    color: white;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-glossy);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add glossy overlay to hero */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-glossy);
+    pointer-events: none;
+}
+
+.hero h2,
+.hero p,
+.hero-stats {
+    position: relative;
+    z-index: 1;
+}
+
+/* Update active nav link */
+.nav-link.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Update primary button */
+.btn-primary {
+    background: var(--gradient-black);
+    color: white;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-glossy);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-primary:hover {
+    background: var(--gradient-black-shine);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glossy);
+}
+
+/* Update mobile user profile background */
+.mobile-user-profile {
+    background: var(--gradient-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.mobile-user-profile::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-glossy);
+    pointer-events: none;
+}
+
+.mobile-user-profile > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Update user avatar gradient */
+.user-avatar {
+    background: var(--gradient-black);
+    border: 2px solid var(--bg-tertiary);
+}
+
+/* Enhance task card hover for premium feel */
+.task-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glossy);
+    border-color: var(--primary-light);
+}
+
+/* Add subtle glossy effect to task cards */
+.task-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.task-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--primary-color) 50%, 
+        transparent 100%);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.task-card:hover::after {
+    opacity: 1;
+}
+
+/* Update mobile nav link active state */
+.mobile-nav-link.active {
+    background: var(--gradient-black);
+    color: white;
 }
 
 .hero h2 {
