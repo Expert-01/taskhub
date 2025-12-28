@@ -345,14 +345,7 @@ body {
 /* Header */
 /* ==================== */
 .header {
-    background-color: var(--bg-primary);
-    padding: 20px 0;
-    margin-bottom: 30px;
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: var(--shadow-sm);
+    
 }
 
 .logo h1 {
