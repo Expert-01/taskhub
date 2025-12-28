@@ -728,6 +728,38 @@ button {
   margin: 0 10px;
 }
 
+.hero1 {
+  position: relative;
+  text-align: center;
+  padding: 120px 20px 80px;
+  background: #fff; /* white background */
+  overflow: hidden;
+}
+
+/* Blurred semi-circle gradient */
+.hero1::before {
+  content: "";
+  position: absolute;
+  top: -150px; /* lift above hero */
+  left: 50%;
+  transform: translateX(-50%) scaleX(1.5); /* wider semi-circle */
+  width: 600px;  /* semi-circle width */
+  height: 400px; /* semi-circle height */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.15) 0%,
+    rgba(80, 80, 80, 0.1) 40%,
+    rgba(150, 150, 150, 0.05) 70%,
+    transparent 100%
+  );
+  filter: blur(120px);
+  z-index: 0;
+}
+
+
+
+
+
 .hero {
     background: var(--gradient-black);
     padding: 40px 30px;
