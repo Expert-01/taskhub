@@ -579,7 +579,9 @@
 
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+    font-family: 'Azonix', sans-serif;
+
     line-height: 1.6;
     color: var(--text-primary);
    background-color: var(--bg-secondary);
