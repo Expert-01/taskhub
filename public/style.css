@@ -447,6 +447,30 @@ body {
     box-shadow: var(--shadow-lg);
 }
 */
+
+/* HERO */
+.hero1 {
+  text-align: center;
+  padding: 120px 20px 60px;
+}
+
+.hero-content h1 {
+  font-size: 56px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content p {
+  font-size: 18px;
+  opacity: 0.85;
+  margin: 20px auto 40px;
+  max-width: 600px;
+}
+
+.hero-buttons button {
+  margin: 0 10px;
+}
+
 .hero {
     background: var(--gradient-black);
     padding: 40px 30px;
