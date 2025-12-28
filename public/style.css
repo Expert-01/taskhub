@@ -93,6 +93,11 @@
 .nav {
     gap: 8px;
     margin-top: 0;
+display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  backdrop-filter: blur(10px);
 }
 
 .nav-link {
