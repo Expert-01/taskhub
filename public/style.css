@@ -73,13 +73,13 @@ body::after {
     --warning-color: #f59e0b;
     
     --text-primary: red;
-    --text-secondary: #666666;
+    --text-secondary: green;
     --text-light: #999999;
     
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
     --bg-tertiary: #f0f1f3;
-    --bg-black: #1a1a1a;
+    --bg-black: yellow;
     --bg-black-light: #2a2a2a;
     
     --border-color: #e5e7eb;
