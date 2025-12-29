@@ -185,7 +185,7 @@ body::after {
 /* Enhanced Header with Hamburger Menu */
 /* ==================== */
 .header-container {
-    font-family: 'Azonix', sans-serif;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -196,8 +196,10 @@ body::after {
 }
 
 .logo{
+    font-family: 'Azonix', sans-serif;
      color: red;
-           }
+
+ }
 /* Desktop Navigation */
 .desktop-nav {
     display: flex;
