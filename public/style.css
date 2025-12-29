@@ -72,9 +72,9 @@ body::after {
     --danger-color: #ef4444;
     --warning-color: #f59e0b;
     
-    --text-primary: red;
-    --text-secondary: green;
-    --text-light: #999999;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --text-light: green;
     
     --bg-primary: #ffffff;
     --bg-secondary: #f8f9fa;
