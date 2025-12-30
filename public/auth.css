@@ -8,7 +8,7 @@
 /* Page base */
 html, body {
   width: 100%;
-  overflow-x: hidden; /* 🔒 Prevent horizontal scroll */
+  overflow-x: hidden;
 }
 
 body {
@@ -16,49 +16,72 @@ body {
   min-height: 100vh;
   background: #fff;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px; /* mobile breathing space */
+
+  /* 🔽 CHANGED: move card upward for visual closeness */
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 14vh 20px 20px;
 }
 
-/* Ambient glossy gradient */
+/* Ambient glossy gradient (tighter + darker) */
 body::before {
   content: "";
   position: absolute;
-  top: -220px;
+  top: -140px;
   left: 50%;
-  transform: translateX(-50%) scaleX(1.8);
-  width: 1200px;
-  height: 520px;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 300px;
   background: radial-gradient(
     ellipse at center,
-    rgba(0, 0, 0, 0.65) 0%,
-    rgba(50, 50, 50, 0.45) 35%,
-    rgba(120, 120, 120, 0.25) 60%,
-    transparent 100%
+    rgba(0, 0, 0, 0.75) 0%,
+    rgba(30, 30, 30, 0.55) 35%,
+    rgba(100, 100, 100, 0.25) 60%,
+    transparent 80%
   );
-  filter: blur(180px);
+  filter: blur(110px); /* ⬅ less blur = closer */
   z-index: -1;
   pointer-events: none;
 }
 
 /* Glass card */
 .auth-card {
+  position: relative;
   width: 100%;
   max-width: 460px;
   padding: 40px;
   border-radius: 24px;
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.75),
-    rgba(255, 255, 255, 0.45)
+    rgba(255, 255, 255, 0.78),
+    rgba(255, 255, 255, 0.48)
   );
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.5);
+
+  /* 🔽 STRONGER DEPTH */
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.25),
+    0 40px 90px rgba(0, 0, 0, 0.35),
     inset 0 0 40px rgba(255, 255, 255, 0.45);
+}
+
+/* Ground shadow (anchors the card) */
+.auth-card::after {
+  content: "";
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 28px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.35),
+    transparent 70%
+  );
+  filter: blur(18px);
+  z-index: -1;
 }
 
 /* Header */
@@ -109,11 +132,7 @@ body::before {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  background: linear-gradient(
-    180deg,
-    #111,
-    #000
-  );
+  background: linear-gradient(180deg, #111, #000);
   color: #fff;
   margin-top: 12px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -121,7 +140,7 @@ body::before {
 
 .auth-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
 }
 
 /* Footer text */
@@ -141,6 +160,10 @@ body::before {
    Mobile Optimization
 ====================== */
 @media (max-width: 480px) {
+  body {
+    padding-top: 10vh;
+  }
+
   .auth-card {
     padding: 28px;
     border-radius: 20px;
