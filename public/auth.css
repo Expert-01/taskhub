@@ -46,6 +46,10 @@ body::before {
 
 /* Glass card */
 .auth-card {
+  margin: 0 auto;
+}
+
+.auth-card {
   position: relative;
   width: 100%;
   max-width: 460px;
