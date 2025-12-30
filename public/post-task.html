@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post a Task - TaskHub RSU</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header (Logged In Version) -->
+        <header class="header">
+            <div class="header-container">
+                <div class="logo">
+                    <h1>TaskHub RSU</h1>
+                    <p class="tagline">Earn. Help. Connect.</p>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav desktop-nav">
+                    <a href="index.html" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Home
+                    </a>
+                    <a href="post-task.html" class="nav-link active">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        Post Task
+                    </a>
+                    <a href="my-tasks.html" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        </svg>
+                        My Tasks
+                    </a>
+                </nav>
+
+                <!-- User Profile (Desktop) -->
+                <div class="user-profile desktop-nav">
+                    <div class="user-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">You</span>
+                        <span class="user-reputation">⭐ 0 pts</span>
+                    </div>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Navigation Menu -->
+            <nav class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-content">
+                    <div class="mobile-user-profile">
+                        <div class="user-avatar-large">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="mobile-user-info">
+                            <span class="mobile-user-name">You</span>
+                            <span class="mobile-user-reputation">⭐ 0 reputation points</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-nav-links">
+                        <a href="index.html" class="mobile-nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            <span>Home</span>
+                            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                        <a href="post-task.html" class="mobile-nav-link active">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                            <span>Post Task</span>
+                            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                        <a href="my-tasks.html" class="mobile-nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            </svg>
+                            <span>My Tasks</span>
+                            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="mobile-nav-footer">
+                        <p>&copy; 2024 TaskHub RSU</p>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="page-header-content">
+                <h2>Post a New Task</h2>
+                <p>Need help with something? Post a task and get it done quickly</p>
+            </div>
+        </section>
+
+        <!-- Post Task Form -->
+        <div class="post-task-container">
+            <div class="post-task-main">
+                <form class="post-task-form" id="postTaskForm">
+                    <!-- Task Title -->
+                    <div class="form-group">
+                        <label for="taskTitle" class="form-label">
+                            Task Title
+                            <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="taskTitle" 
+                            class="form-input" 
+                            placeholder="e.g., Laundry pickup from Hostel A"
+                            maxlength="100"
+                            required
+                        >
+                        <span class="form-hint">Be clear and specific (max 100 characters)</span>
+                    </div>
+
+                    <!-- Task Category -->
+                    <div class="form-group">
+                        <label for="taskCategory" class="form-label">
+                            Category
+                            <span class="required">*</span>
+                        </label>
+                        <select id="taskCategory" class="form-select" required>
+                            <option value="">Select a category</option>
+                            <option value="errands">Errands & Delivery</option>
+                            <option value="academic">Academic Help</option>
+                            <option value="cleaning">Cleaning & Organizing</option>
+                            <option value="tech">Tech Support</option>
+                            <option value="events">Event Setup</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <!-- Task Description -->
+                    <div class="form-group">
+                        <label for="taskDescription" class="form-label">
+                            Description
+                            <span class="required">*</span>
+                        </label>
+                        <textarea 
+                            id="taskDescription" 
+                            class="form-textarea" 
+                            placeholder="Describe what needs to be done, any specific requirements, location details, etc."
+                            rows="6"
+                            maxlength="500"
+                            required
+                        ></textarea>
+                        <div class="char-count">
+                            <span id="charCount">0</span>/500 characters
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label for="taskLocation" class="form-label">
+                            Location
+                            <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="text" 
+                            id="taskLocation" 
+                            class="form-input" 
+                            placeholder="e.g., Hostel A Room 205, Engineering Block"
+                            required
+                        >
+                        <span class="form-hint">Where should the task be done?</span>
+                    </div>
+
+                    <!-- Reward & Time Limit Row -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="taskReward" class="form-label">
+                                Reward (₦)
+                                <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="number" 
+                                id="taskReward" 
+                                class="form-input" 
+                                placeholder="500"
+                                min="100"
+                                step="50"
+                                required
+                            >
+                            <span class="form-hint">Minimum ₦100</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="taskDeadline" class="form-label">
+                                Deadline
+                                <span class="required">*</span>
+                            </label>
+                            <input 
+                                type="datetime-local" 
+                                id="taskDeadline" 
+                                class="form-input" 
+                                required
+                            >
+                            <span class="form-hint">When should it be done?</span>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="form-group">
+                        <label for="taskContact" class="form-label">
+                            Contact Number
+                            <span class="required">*</span>
+                        </label>
+                        <input 
+                            type="tel" 
+                            id="taskContact" 
+                            class="form-input" 
+                            placeholder="08012345678"
+                            pattern="[0-9]{11}"
+                            required
+                        >
+                        <span class="form-hint">Your phone number for coordination</span>
+                    </div>
+
+                    <!-- Additional Options -->
+                    <div class="form-group">
+                        <label class="form-label">Additional Options</label>
+                        <div class="checkbox-options">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="urgentTask">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">
+                                    Mark as urgent (₦50 fee)
+                                </span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="verifiedOnly">
+                                <span class="checkbox-custom"></span>
+                                <span class="checkbox-text">
+                                    Verified users only
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="window.history.back()">
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                                <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                                <polyline points="7 3 7 8 15 8"></polyline>
+                            </svg>
+                            Post Task
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Sidebar - Tips & Guidelines -->
+            <aside class="post-task-sidebar">
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                            <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                        </svg>
+                        <h3>Task Posting Tips</h3>
+                    </div>
+                    <ul class="tips-list">
+                        <li>
+                            <strong>Be specific:</strong> Clear descriptions get faster responses
+                        </li>
+                        <li>
+                            <strong>Fair pricing:</strong> Check similar tasks to price competitively
+                        </li>
+                        <li>
+                            <strong>Realistic deadlines:</strong> Give enough time for quality work
+                        </li>
+                        <li>
+                            <strong>Stay responsive:</strong> Reply to questions quickly
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card">
+                    <div class="sidebar-card-header">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h3>Popular Tasks</h3>
+                    </div>
+                    <ul class="popular-tasks-list">
+                        <li>
+                            <span class="task-name">Laundry Services</span>
+                            <span class="avg-price">₦500</span>
+                        </li>
+                        <li>
+                            <span class="task-name">Assignment Typing</span>
+                            <span class="avg-price">₦1,000</span>
+                        </li>
+                        <li>
+                            <span class="task-name">Room Cleaning</span>
+                            <span class="avg-price">₦800</span>
+                        </li>
+                        <li>
+                            <span class="task-name">Food Delivery</span>
+                            <span class="avg-price">₦300</span>
+                        </li>
+                        <li>
+                            <span class="task-name">Tutoring (1hr)</span>
+                            <span class="avg-price">₦1,500</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-card commission-card">
+                    <h4>Commission Info</h4>
+                    <p>TaskHub charges a 5% service fee on completed tasks to maintain the platform.</p>
+                    <div class="commission-example">
+                        <div class="commission-row">
+                            <span>Task Reward:</span>
+                            <span>₦1,000</span>
+                        </div>
+                        <div class="commission-row">
+                            <span>Service Fee (5%):</span>
+                            <span>₦50</span>
+                        </div>
+                        <div class="commission-row total">
+                            <span>Total Cost:</span>
+                            <span>₦1,050</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 TaskHub RSU. Built for students, by students.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            let overlay = null;
+
+            function createOverlay() {
+                overlay = document.createElement('div');
+                overlay.className = 'mobile-nav-overlay';
+                overlay.addEventListener('click', closeMobileMenu);
+                document.body.appendChild(overlay);
+            }
+
+            function toggleMobileMenu() {
+                const isActive = mobileNav.classList.contains('active');
+                if (isActive) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            }
+
+                        function openMobileMenu() {
+                if (!overlay) createOverlay();
+                mobileMenuBtn.classList.add('active');
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                if (overlay) overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            }
+
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+        });
+
+        // Character counter
+        const description = document.getElementById('taskDescription');
+        const charCount = document.getElementById('charCount');
+        
+        description.addEventListener('input', () => {
+            charCount.textContent = description.value.length;
+        });
+
+        // Set minimum deadline to current time
+        const deadlineInput = document.getElementById('taskDeadline');
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        deadlineInput.min = now.toISOString().slice(0, 16);
+
+        // Form submission
+        document.getElementById('postTaskForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                title: document.getElementById('taskTitle').value,
+                category: document.getElementById('taskCategory').value,
+                description: document.getElementById('taskDescription').value,
+                location: document.getElementById('taskLocation').value,
+                reward: document.getElementById('taskReward').value,
+                deadline: document.getElementById('taskDeadline').value,
+                contact: document.getElementById('taskContact').value,
+                urgent: document.getElementById('urgentTask').checked,
+                verifiedOnly: document.getElementById('verifiedOnly').checked,
+                postedBy: 'user3', // This would come from authentication
+                postedByName: 'You',
+                status: 'open',
+                createdAt: new Date().toISOString()
+            };
+            
+            console.log('Task Posted:', formData);
+            
+            // Show success message
+            alert('Task posted successfully! Redirecting to home...');
+            
+            // Redirect to home
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
