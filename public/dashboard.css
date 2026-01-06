@@ -170,3 +170,60 @@ body {
   color: #fff;
   cursor: pointer;
 }
+
+
+
+@media (max-width: 768px) {
+
+  /* Remove sidebar entirely */
+  .sidebar {
+    display: none;
+  }
+
+  .dashboard-body {
+    flex-direction: column;
+  }
+
+  .dashboard-main {
+    padding: 16px;
+    padding-bottom: 90px; /* space for bottom nav */
+  }
+
+  /* Header becomes compact */
+  .dashboard-header h1 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  /* Cards become single column */
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  /* Mobile bottom navigation */
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 72px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(10,10,10,0.9);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .mobile-nav a {
+    color: #aaa;
+    font-size: 13px;
+    text-decoration: none;
+  }
+}
