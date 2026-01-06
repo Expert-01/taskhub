@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks - TaskHub RSU</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header (Logged In Version) -->
+        <header class="header">
+            <div class="header-container">
+                <div class="logo">
+                    <h1>TaskHub RSU</h1>
+                    <p class="tagline">Earn. Help. Connect.</p>
+                </div>
+
+                <nav class="nav desktop-nav">
+                    <a href="index.html" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        Home
+                    </a>
+                    <a href="post-task.html" class="nav-link">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="16"></line>
+                            <line x1="8" y1="12" x2="16" y2="12"></line>
+                        </svg>
+                        Post Task
+                    </a>
+                    <a href="my-tasks.html" class="nav-link active">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        </svg>
+                        My Tasks
+                    </a>
+                </nav>
+
+                <div class="user-profile desktop-nav">
+                    <div class="user-avatar">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">You</span>
+                        <span class="user-reputation">⭐ 25 pts</span>
+                    </div>
+                </div>
+
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+
+            <nav class="mobile-nav" id="mobileNav">
+                <div class="mobile-nav-content">
+                    <div class="mobile-user-profile">
+                        <div class="user-avatar-large">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="mobile-user-info">
+                            <span class="mobile-user-name">You</span>
+                            <span class="mobile-user-reputation">⭐ 25 reputation points</span>
+                        </div>
+                    </div>
+
+                    <div class="mobile-nav-links">
+                        <a href="index.html" class="mobile-nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            <span>Home</span>
+                            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                        <a href="post-task.html" class="mobile-nav-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                            <span>Post Task</span>
+                            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                        <a href="my-tasks.html" class="mobile-nav-link active">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                            </svg>
+                            <span>My Tasks</span>
+                            <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="9 18 15 12 9 6"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="mobile-nav-footer">
+                        <p>&copy; 2024 TaskHub RSU</p>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Dashboard Header -->
+        <section class="dashboard-header">
+            <div class="dashboard-header-content">
+                <div class="dashboard-title">
+                    <h2>My Dashboard</h2>
+                    <p>Track your tasks and earnings</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon earnings">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="12" y1="1" x2="12" y2="23"></line>
+                        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Total Earnings</span>
+                    <span class="stat-value" id="totalEarnings">₦0</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon completed">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Tasks Completed</span>
+                    <span class="stat-value" id="completedCount">0</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon reputation">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Reputation Points</span>
+                    <span class="stat-value" id="reputationPoints">25</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-icon active">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Active Tasks</span>
+                    <span class="stat-value" id="activeCount">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Task Tabs -->
+        <div class="task-tabs-container">
+            <div class="task-tabs">
+                <button class="task-tab active" data-tab="posted">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                    </svg>
+                    Posted Tasks
+                    <span class="tab-count" id="postedCount">0</span>
+                </button>
+                <button class="task-tab" data-tab="active">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    Active Tasks
+                    <span class="tab-count" id="activeTabCount">0</span>
+                </button>
+                <button class="task-tab" data-tab="completed">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    Completed
+                    <span class="tab-count" id="completedTabCount">0</span>
+                </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="tab-content">
+                <!-- Posted Tasks Tab -->
+                <div class="tab-pane active" id="posted-pane">
+                    <div class="tab-pane-header">
+                        <h3>Tasks You Posted</h3>
+                        <a href="post-task.html" class="btn btn-primary btn-sm">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="8" x2="12" y2="16"></line>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                            </svg>
+                            Post New Task
+                        </a>
+                    </div>
+                    <div class="tasks-list" id="postedTasksList">
+                        <div class="loading">Loading your posted tasks...</div>
+                    </div>
+                </div>
+
+                <!-- Active Tasks Tab -->
+                <div class="tab-pane" id="active-pane">
+                    <div class="tab-pane-header">
+                        <h3>Tasks You're Working On</h3>
+                        <a href="index.html" class="btn btn-secondary btn-sm">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                            Find More Tasks
+                        </a>
+                    </div>
+                    <div class="tasks-list" id="activeTasksList">
+                        <div class="loading">Loading your active tasks...</div>
+                    </div>
+                </div>
+
+                <!-- Completed Tasks Tab -->
+                <div class="tab-pane" id="completed-pane">
+                    <div class="tab-pane-header">
+                        <h3>Completed Tasks</h3>
+                        <select class="filter-select" id="completedFilter">
+                            <option value="all">All Time</option>
+                            <option value="week">This Week</option>
+                            <option value="month">This Month</option>
+                        </select>
+                    </div>
+                    <div class="tasks-list" id="completedTasksList">
+                        <div class="loading">Loading completed tasks...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 TaskHub RSU. Built for students, by students.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileNav = document.getElementById('mobileNav');
+            let overlay = null;
+
+            function createOverlay() {
+                overlay = document.createElement('div');
+                overlay.className = 'mobile-nav-overlay';
+                overlay.addEventListener('click', closeMobileMenu);
+                document.body.appendChild(overlay);
+            }
+
+            function toggleMobileMenu() {
+                const isActive = mobileNav.classList.contains('active');
+                if (isActive) {
+                    closeMobileMenu();
+                } else {
+                    openMobileMenu();
+                }
+            }
+
+            function openMobileMenu() {
+                if (!overlay) createOverlay();
+                mobileMenuBtn.classList.add('active');
+                mobileNav.classList.add('active');
+                overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMobileMenu() {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                if (overlay) overlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+            }
+
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', closeMobileMenu);
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // Initialize dashboard
+            initializeDashboard();
+        });
+
+        // Tab switching
+        const tabs = document.querySelectorAll('.task-tab');
+        const panes = document.querySelectorAll('.tab-pane');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and panes
+                tabs.forEach(t => t.classList.remove('active'));
+                panes.forEach(p => p.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding pane
+                tab.classList.add('active');
+                document.getElementById(`${targetTab}-pane`).classList.add('active');
+            });
+        });
+
+        // Initialize dashboard data
+        function initializeDashboard() {
+            loadDashboardStats();
+            loadPostedTasks();
+            loadActiveTasks();
+            loadCompletedTasks();
+        }
+
+        function loadDashboardStats() {
+            // Mock data - replace with API call
+            const stats = {
+                totalEarnings: 8500,
+                completedTasks: 12,
+                reputation: 25,
+                activeTasks: 3
+            };
+
+            document.getElementById('totalEarnings').textContent = `₦${stats.totalEarnings.toLocaleString()}`;
+            document.getElementById('completedCount').textContent = stats.completedTasks;
+            document.getElementById('reputationPoints').textContent = stats.reputation;
+            document.getElementById('activeCount').textContent = stats.activeTasks;
+        }
+
+        function loadPostedTasks() {
+            // Mock posted tasks
+            const postedTasks = [
+                {
+                    id: "1",
+                    title: "Laundry Pickup from Hostel A",
+                    reward: 500,
+                    status: "in-progress",
+                    acceptedBy: "Chidi O.",
+                    postedAt: "2024-12-27T10:00:00Z",
+                    deadline: "2024-12-28T18:00:00Z"
+                },
+                {
+                    id: "2",
+                    title: "Assignment Typing - 5 Pages",
+                    reward: 1000,
+                    status: "open",
+                    acceptedBy: null,
+                    postedAt: "2024-12-27T11:30:00Z",
+                    deadline: "2024-12-29T12:00:00Z"
+                }
+            ];
+
+            renderPostedTasks(postedTasks);
+            document.getElementById('postedCount').textContent = postedTasks.length;
+        }
+
+        function renderPostedTasks(tasks) {
+            const container = document.getElementById('postedTasksList');
+            
+            if (tasks.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                            <polyline points="14 2 14 8 20 8"></polyline>
+                        </svg>
+                        <h3>No Posted Tasks</h3>
+                        <p>You haven't posted any tasks yet</p>
+                        <a href="post-task.html" class="btn btn-primary">Post Your First Task</a>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = tasks.map(task => `
+                <div class="dashboard-task-card">
+                    <div class="task-card-header">
+                        <h4 class="task-card-title">${task.title}</h4>
+                        <span class="task-status status-${task.status}">${formatStatus(task.status)}</span>
+                    </div>
+                    <div class="task-card-meta">
+                        <span class="meta-item">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line
