@@ -9,8 +9,12 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
 />
 <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/azonix">
-
     <link rel="stylesheet" href="style.css">
+    <style>
+        .container {
+            background: linear-gradient(to bottom, #4a4a4a, #2a2a2a) !important;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -18,12 +22,24 @@
 <header class="header">
     <div class="header-container">
         <div class="logo">
-            <h1 class="header-title">TaskHub</h1>
+            <h2 class="header-title">TaskHub</h2>
             <p class="tagline">Earn. Help. Connect.</p>
         </div>
 
         <!-- Desktop Navigation - Auth Buttons -->
         <nav class="nav desktop-nav">
+
+            <a href="#blog" class="nav-link">
+                Blog
+            </a>
+
+            <a href="#contact" class="nav-link">
+                Contact Service
+            </a>
+
+            <a href="#updates" class="nav-link">
+                Updates
+            </a>
 
             <a href="login.html" class="nav-link ">
 
@@ -36,7 +52,7 @@
                 Sign Up
 
             </a>
-        
+
     </nav>
 
         <!-- Mobile Menu Button -->
@@ -60,6 +76,39 @@
 
             <!-- Mobile Navigation Links -->
             <div class="mobile-nav-links ">
+                <a href="#blog" class="mobile-nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M2 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2z"></path>
+                        <polyline points="6 8 10 12 6 16"></polyline>
+                        <line x1="10" y1="12" x2="14" y2="12"></line>
+                    </svg>
+                    <span>Blog</span>
+                    <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+                <a href="#contact" class="mobile-nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                    <span>Contact Service</span>
+                    <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
+                <a href="#updates" class="mobile-nav-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span>Updates</span>
+                    <svg class="chevron" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </a>
                 <a href="login.html" class="mobile-nav-link">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path>
@@ -112,15 +161,26 @@
 
 
       
+<div class="loader">
+<span class="loader-inner-1"></span>
+<span class="loader-inner-2"></span>
+<span class="loader-inner-3"></span>
+<span class="loader-inner-4"></span>
 
+</div>
 <!-- HERO SECTION -->
   <section class="hero1">
 
-    <div class="hero-content hero-text">
+    <div class="hero-content ">
+        
+<div class="hero-cta-badge">
+    <span class="cta-badge-text">Join 15,000+ students earning and helping on TaskHub</span>
+</div>
+
 <span>
-      <h1>Get Tasks. Get Paid. Get It Done.</h1>
+      <span class="hero-text">Get Tasks. Get Paid. Get It Done.</span> 
 </span>
-      <p>
+      <p>   
         The student task marketplace. Earn money or get quick help
         for campus tasks.
       </p>
@@ -132,11 +192,21 @@
 
 
     </div>
-
-
+<div class="schools">
+    <span>SUPPORTED IN 50+ UNIVERSITIES</span>
+    <ul>
+        <li>Rivers State University</li>
+        <li>University of Port Harcourt</li>
+        <li>Ignatius Ajuru</li>
+    </ul>
+    <div>
+        
+    </div>
+</div>
+</section>
 
 <div class="features">
-  <div class="feature-card glass fade-in">
+  <div class="feature-card fade-in">
     <div class="icon">
       <i class="fa-solid fa-wallet"></i>
     </div>
@@ -144,11 +214,11 @@
     <p class="subtitle">Turn free time into money</p>
     <p class="desc">
       Students can complete short campus-based tasks and earn quick income
-      without long-term commitment or upfront capital.
+      without long-term commitment or upfront capital. Whether you have a spare hour between classes or need weekend pocket money, TaskHub makes it easy to monetize your time and skills on your own schedule.
     </p>
   </div>
 
-  <div class="feature-card glass fade-in">
+  <div class="feature-card fade-in">
     <div class="icon">
       <i class="fa-solid fa-bolt"></i>
     </div>
@@ -156,36 +226,197 @@
     <p class="subtitle">Post tasks in seconds</p>
     <p class="desc">
       Need help with errands, chores, or academic tasks?
-      Post a task and get matched with available students nearby.
+      Post a task in just a few clicks and get matched with available students nearby who can help. From laundry runs to assignment typing, find reliable help exactly when you need it without hassle or delays.
     </p>
   </div>
 
-  <div class="feature-card glass fade-in">
+  <div class="feature-card fade-in">
     <div class="icon">
       <i class="fa-solid fa-shield-check"></i>
     </div>
     <h3>Trust & Reputation</h3>
     <p class="subtitle">Built on accountability</p>
     <p class="desc">
-      Each completed task increases a user’s reputation score,
-      helping others identify reliable and skilled taskers.
+      Each completed task increases a user's reputation score,
+      helping others identify reliable and skilled taskers. Our rating system ensures accountability and quality, so both task posters and taskers can trust they're working with verified, experienced community members.
+    </p>
+  </div>
+
+  <div class="feature-card fade-in">
+    <div class="icon">
+      <i class="fa-solid fa-users"></i>
+    </div>
+    <h3>Build Your Campus Network</h3>
+    <p class="subtitle">Connect with your community</p>
+    <p class="desc">
+      TaskHub brings students together in a supportive marketplace where mutual help strengthens campus bonds. Beyond earning money or getting tasks done, you'll build meaningful connections with classmates, expand your professional network, and become part of a thriving student ecosystem.
     </p>
   </div>
 </div>
 
+<!-- Parallax Section -->
+<div class="parallax-container" id="parallaxContainer">
+  <div class="parallax-bg"></div>
+  <div class="parallax-content">Discover More</div>
+</div>
+
+<section class="section_2">
+
+    <div class="section-2-container">
+        <!-- Left Side: Text Content -->
+        <div class="hero-gap-section">
+            <div class="hero-gap-inner">
+                <h2>Closing the Campus Gap: a simple marketplace that connects student needs with on-campus skills</h2>
+                <p>TaskHub was built to close a common gap on campus — students who need quick, reliable help with everyday tasks and students who have the time and skills to help but lack a simple, trusted place to find that work. By bringing requests and helpers together in one easy-to-use platform, TaskHub removes friction around timing, trust, and payment. Whether it's running an errand, proofreading an assignment, or helping set up an event, TaskHub matches need with capability, preserves accountability through reputation and ratings, and creates flexible earning opportunities that fit around study schedules. The result is a healthier campus economy: tasks get done faster, students earn on their own terms, and communities become more supportive and efficient.</p>
+            </div>
+        </div>
+
+        <!-- Right Side: Chat Component -->
+        <div class="chat-component">
+            <div class="chat-header">
+                <div class="chat-date">Thursday, Oct 24 •</div>
+                <div class="chat-avatars">
+                    <div class="avatar">A</div>
+                    <div class="avatar">R</div>
+                    <span class="avatar-count">+3 more</span>
+                </div>
+            </div>
+            
+            <div class="chat-title">
+                <h3>How TaskHub Works</h3>
+            </div>
+
+            <div class="chat-tabs">
+                <button class="chat-tab active">Overview</button>
+                <button class="chat-tab">Benefits</button>
+                <button class="chat-tab">Features</button>
+            </div>
+
+            <div class="chat-messages">
+                <div class="message incoming">
+                    <span class="message-sender">System</span>
+                    <span class="message-time">12:32 PM</span>
+                    <p>Welcome to TaskHub! A marketplace connecting students who need help with those who can provide it.</p>
+                </div>
+
+                <div class="message outgoing">
+                    <span class="message-sender">You</span>
+                    <span class="message-time">12:32 PM</span>
+                    <p>That sounds interesting. Tell me more!</p>
+                </div>
+
+                <div class="message incoming">
+                    <span class="message-sender">System</span>
+                    <span class="message-time">12:33 PM</span>
+                    <p>Post a task or find one that matches your skills. Earn money or get help instantly.</p>
+                </div>
+
+                <div class="message outgoing">
+                    <span class="message-sender">You</span>
+                    <span class="message-time">12:33 PM</span>
+                    <p>How secure is this platform?</p>
+                </div>
+
+                <div class="message incoming">
+                    <span class="message-sender">System</span>
+                    <span class="message-time">12:34 PM</span>
+                    <p>All users are verified and transactions are secured. Your reputation score builds trust.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 
         <!-- Hero Section -->
-        <section class="hero">
-            <h2>Available Tasks</h2>
-            <p>Find tasks, earn money, and build your reputation</p>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number" id="taskCount">0</span>
-                    <span class="stat-label">Active Tasks</span>
+        <section class="section_3">
+            <div class="section_3-content">
+                <div class="section_3-header">
+                    <h2>Available Tasks</h2>
+                    <p>Find tasks, earn money, and build your reputation</p>
                 </div>
-                <div class="stat">
-                    <span class="stat-number">₦2,500</span>
-                    <span class="stat-label">Avg. Reward</span>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                <line x1="3" y1="9" x2="21" y2="9"></line>
+                                <line x1="9" y1="3" x2="9" y2="21"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number" id="taskCount">0</span>
+                            <span class="stat-label">Active Tasks</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">₦2,500</span>
+                            <span class="stat-label">Avg. Reward</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">15K+</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                <polyline points="13 2 13 9 20 9"></polyline>
+                                <line x1="9" y1="15" x2="15" y2="15"></line>
+                                <line x1="9" y1="11" x2="15" y2="11"></line>
+                            </svg>
+                        </div>
+                        <div class="stat-info">
+                            <span class="stat-number">98%</span>
+                            <span class="stat-label">Completion Rate</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section_3-info">
+                    <h3>Why Join TaskHub?</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-icon">🎯</div>
+                            <h4>Easy Task Discovery</h4>
+                            <p>Browse through hundreds of verified tasks tailored to your skills and interests</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">💰</div>
+                            <h4>Competitive Rewards</h4>
+                            <p>Earn fair market rates with transparent pricing and instant payment options</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">⭐</div>
+                            <h4>Build Your Reputation</h4>
+                            <p>Complete tasks successfully and earn badges to unlock premium opportunities</p>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">🤝</div>
+                            <h4>Community Support</h4>
+                            <p>Connect with peers and mentors in a trusted ecosystem built for students</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -235,7 +466,42 @@
         </footer>
     </div>
 
+ 
     <script src="app.js"></script>
+    <!--
+<script src="three.r134.min.js"></script>
+<script src="vanta.rings.min.js"></script>
+<script>
+VANTA.RINGS({
+  el: ".container",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  backgroundColor: 0xa8b1b1,
+  color: 0x60b00
+})
+</script>-->
+<!---->
+<script src="three.r134.min.js"></script>
+<script src="vanta.net.min.js"></script>
+<script>
+VANTA.NET({
+  el: ".container",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0xe8e2e2,
+  backgroundColor: 0xd8d8d8
+})
+</script>
     <script>
         // Home page specific logic
         document.addEventListener('DOMContentLoaded', () => {

@@ -1,0 +1,2 @@
+- [x] Add "Blog", "Contact Service", and "Updates" links to the desktop navigation bar in public/index.html
+- [x] Add the same links to the mobile navigation menu in public/index.html

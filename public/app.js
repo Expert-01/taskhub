@@ -87,3 +87,27 @@
   faders.forEach(fader => {
     appearOnScroll.observe(fader);
   });
+
+
+// Parallax Scroll Effect
+document.addEventListener('DOMContentLoaded', () => {
+  const parallaxContainer = document.getElementById('parallaxContainer');
+  const parallaxBg = document.querySelector('.parallax-bg');
+  const parallaxContent = document.querySelector('.parallax-content');
+
+  if (parallaxContainer && parallaxBg && parallaxContent) {
+    window.addEventListener('scroll', () => {
+      const scrollPosition = window.scrollY;
+      const containerPosition = parallaxContainer.getBoundingClientRect().top + scrollPosition;
+      const elementPosition = scrollPosition - (containerPosition - window.innerHeight);
+      
+      // Background moves slower (parallax effect)
+      parallaxBg.style.transform = `translateY(${elementPosition * 0.5}px)`;
+      
+      // Content fades in/out and scales based on scroll
+      const fadeAmount = Math.min(Math.max(elementPosition / 200, 0), 1);
+      parallaxContent.style.opacity = fadeAmount * 0.5;
+      parallaxContent.style.transform = `translateY(${-elementPosition * 0.3}px) scale(${0.8 + fadeAmount * 0.2})`;
+    });
+  }
+});

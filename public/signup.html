@@ -239,13 +239,20 @@
             password.setAttribute('type', type);
         });
         
-        // Form validation
-        document.getElementById('signupForm').addEventListener('submit', function(e) {
+        // Form submission with backend integration
+        document.getElementById('signupForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
             const password = document.getElementById('password').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
+            const studentId = document.getElementById('studentId').value;
+            const department = document.getElementById('department').value;
+            const submitBtn = this.querySelector('button[type="submit"]');
             
+            // Validation
             if (password !== confirmPassword) {
                 alert('Passwords do not match!');
                 return;
@@ -256,9 +263,42 @@
                 return;
             }
             
-            // Here you would normally send data to your backend
-            alert('Account created successfully! Redirecting to login...');
-            window.location.href = 'login.html';
+            try {
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Creating account...';
+                
+                const response = await fetch('http://localhost:4000/api/auth/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password,
+                        name: `${firstName} ${lastName}`,
+                        studentId,
+                        department
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.error || 'Signup failed');
+                }
+                
+                // Store token and user info in localStorage
+                localStorage.setItem('token', data.token);
+                localStorage.setItem('user', JSON.stringify(data.user));
+                
+                // Redirect to dashboard
+                alert('Account created successfully! Redirecting to dashboard...');
+                window.location.href = 'dashboard.html';
+            } catch (error) {
+                alert('Signup failed: ' + error.message);
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Create Account';
+            }
         });
     </script>
 </body>
