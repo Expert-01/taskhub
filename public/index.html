@@ -15,6 +15,15 @@
             background: linear-gradient(to bottom, #4a4a4a, #2a2a2a) !important;
         }
     </style>
+    <script>
+        // Check if preloader has been shown in this session
+        (function() {
+            if (!sessionStorage.getItem('preloaderShown')) {
+                sessionStorage.setItem('preloaderShown', 'true');
+                window.location.href = 'preloader.html';
+            }
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
@@ -40,6 +49,11 @@
             <a href="#updates" class="nav-link">
                 Updates
             </a>
+
+            <!-- Theme Toggle Button (Desktop) -->
+            <button id="themeToggle" class="theme-toggle desktop-theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
 
             <a href="login.html" class="nav-link ">
 
@@ -151,6 +165,10 @@
 
             <!-- Mobile Menu Footer -->
             <div class="mobile-nav-footer">
+                <button id="themeToggle" class="theme-toggle mobile-theme-toggle" aria-label="Toggle dark/light theme" title="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                    <span>Toggle Theme</span>
+                </button>
                 <p>&copy; 2024 TaskHub RSU</p>
             </div>
         </div>
@@ -190,6 +208,8 @@
         <button class="btn-dark">Post a Task</button>
       </div>
 
+      <!-- Mobile Explore Button -->
+      <button class="btn-explore-mobile">Explore</button>
 
     </div>
 <div class="schools">
@@ -331,98 +351,165 @@
 
         <!-- Hero Section -->
         <section class="section_3">
-            <div class="section_3-content">
-                <div class="section_3-header">
-                    <h2>Available Tasks</h2>
-                    <p>Find tasks, earn money, and build your reputation</p>
-                </div>
-
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="3" y1="9" x2="21" y2="9"></line>
-                                <line x1="9" y1="3" x2="9" y2="21"></line>
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-number" id="taskCount">0</span>
-                            <span class="stat-label">Active Tasks</span>
-                        </div>
+            <div id="cssportal-grid">
+                <div id="div1">
+                    <div class="section_3-header">
+                        <h2>Available Tasks</h2>
+                        <p>Find tasks, earn money, and build your reputation</p>
                     </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                            </svg>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                                    <line x1="9" y1="3" x2="9" y2="21"></line>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number" id="taskCount">0</span>
+                                <span class="stat-label">Active Tasks</span>
+                            </div>
                         </div>
-                        <div class="stat-info">
-                            <span class="stat-number">₦2,500</span>
-                            <span class="stat-label">Avg. Reward</span>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">₦2,500</span>
+                                <span class="stat-label">Avg. Reward</span>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-number">15K+</span>
-                            <span class="stat-label">Active Users</span>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon">
-                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
-                                <polyline points="13 2 13 9 20 9"></polyline>
-                                <line x1="9" y1="15" x2="15" y2="15"></line>
-                                <line x1="9" y1="11" x2="15" y2="11"></line>
-                            </svg>
-                        </div>
-                        <div class="stat-info">
-                            <span class="stat-number">98%</span>
-                            <span class="stat-label">Completion Rate</span>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <div class="stat-info">
+                                <span class="stat-number">15K+</span>
+                                <span class="stat-label">Active Users</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="section_3-info">
-                    <h3>Why Join TaskHub?</h3>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <div class="info-icon">🎯</div>
-                            <h4>Easy Task Discovery</h4>
-                            <p>Browse through hundreds of verified tasks tailored to your skills and interests</p>
+                <div id="div2">
+                    <div class="section_3-info">
+                        <h3>Why Join TaskHub?</h3>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-icon">🎯</div>
+                                <h4>Easy Task Discovery</h4>
+                                <p>Browse through hundreds of verified tasks tailored to your skills and interests</p>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">💰</div>
+                                <h4>Competitive Rewards</h4>
+                                <p>Earn fair market rates with transparent pricing and instant payment options</p>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">⭐</div>
+                                <h4>Build Your Reputation</h4>
+                                <p>Complete tasks successfully and earn badges to unlock premium opportunities</p>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon">🤝</div>
+                                <h4>Community Support</h4>
+                                <p>Connect with peers and mentors in a trusted ecosystem built for students</p>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <div class="info-icon">💰</div>
-                            <h4>Competitive Rewards</h4>
-                            <p>Earn fair market rates with transparent pricing and instant payment options</p>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon">⭐</div>
-                            <h4>Build Your Reputation</h4>
-                            <p>Complete tasks successfully and earn badges to unlock premium opportunities</p>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon">🤝</div>
-                            <h4>Community Support</h4>
-                            <p>Connect with peers and mentors in a trusted ecosystem built for students</p>
-                        </div>
+                    </div>
+                </div>
+                <div id="div3">
+                    <div class="section_3-header">
+                        <h2>Quick Stats</h2>
+                        <p>Join thousands of students</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Filters -->
-        <section class="filters">
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-container">
+                <div class="footer-top">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <h3>TaskHub</h3>
+                            <p>Earn. Help. Connect.</p>
+                        </div>
+                        <p class="footer-description">TaskHub is a student-led marketplace connecting those who need help with those ready to earn. Join thousands of students in your campus community.</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li><a href="#">Browse Tasks</a></li>
+                            <li><a href="#">Post a Task</a></li>
+                            <li><a href="#">How It Works</a></li>
+                            <li><a href="#">Pricing</a></li>
+                            <li><a href="#">Become a Tasker</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Community</h4>
+                        <ul>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Success Stories</a></li>
+                            <li><a href="#">Forums</a></li>
+                            <li><a href="#">Events</a></li>
+                            <li><a href="#">Ambassador Program</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Support</h4>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="#">Report Issues</a></li>
+                            <li><a href="#">Feedback</a></li>
+                            <li><a href="#">Safety Center</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Newsletter</h4>
+                        <p>Subscribe to get updates on new tasks and opportunities</p>
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email" required>
+                            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="footer-left">
+                        <p>&copy; 2024 TaskHub RSU. All rights reserved. Built for students, by students.</p>
+                    </div>
+                    <div class="footer-center">
+                        <a href="#">Privacy Policy</a>
+                        <span class="separator">•</span>
+                        <a href="#">Terms of Service</a>
+                        <span class="separator">•</span>
+                        <a href="#">Cookie Policy</a>
+                        <span class="separator">•</span>
+                        <a href="#">Accessibility</a>
+                    </div>
+                    <div class="footer-right">
+                        <a href="#" class="back-to-top">Back to Top <i class="fas fa-arrow-up"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Filters (REMOVED) -->
+        <section class="filters" style="display:none;">
             <div class="filter-group">
                 <label for="sortBy">Sort by:</label>
                 <select id="sortBy" class="filter-select">
@@ -442,13 +529,13 @@
             </div>
         </section>
 
-        <!-- Task List -->
-        <section class="task-list" id="taskList">
+        <!-- Task List (REMOVED) -->
+        <section class="task-list" id="taskList" style="display:none;">
             <!-- Tasks will be loaded here dynamically -->
             <div class="loading">Loading tasks...</div>
         </section>
 
-        <!-- Empty State (hidden by default) -->
+        <!-- Empty State (REMOVED) -->
         <div class="empty-state" id="emptyState" style="display: none;">
             <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -460,10 +547,7 @@
             <a href="post-task.html" class="btn btn-primary">Post a Task</a>
         </div>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p>&copy; 2024 TaskHub RSU. Built for students, by students.</p>
-        </footer>
+        <!-- Footer JS code removed -->
     </div>
 
  
@@ -489,182 +573,114 @@ VANTA.RINGS({
 <script src="three.r134.min.js"></script>
 <script src="vanta.net.min.js"></script>
 <script>
-VANTA.NET({
-  el: ".container",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  scaleMobile: 1.00,
-  color: 0xe8e2e2,
-  backgroundColor: 0xd8d8d8
-})
-</script>
-    <script>
-        // Home page specific logic
-        document.addEventListener('DOMContentLoaded', () => {
-            loadTasks();
-            
-            // Filter listeners
-            document.getElementById('sortBy').addEventListener('change', loadTasks);
-            document.getElementById('filterStatus').addEventListener('change', loadTasks);
-        });
+        // Theme Management System
+        class ThemeManager {
+            constructor() {
+                this.currentTheme = this.getStoredTheme() || this.getSystemTheme();
+                this.init();
+            }
 
-        async function loadTasks() {
-            const taskList = document.getElementById('taskList');
-            const emptyState = document.getElementById('emptyState');
-            const taskCount = document.getElementById('taskCount');
-            
-            const sortBy = document.getElementById('sortBy').value;
-            const filterStatus = document.getElementById('filterStatus').value;
-            
-            taskList.innerHTML = '<div class="loading">Loading tasks...</div>';
-            
-            try {
-                // For now, use mock data - we'll connect to API later
-                const tasks = await getMockTasks();
+            getStoredTheme() {
+                return localStorage.getItem('taskhub-theme');
+            }
+
+            getSystemTheme() {
+                return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+            }
+
+            init() {
+                this.applyTheme(this.currentTheme);
+                this.setupToggleListener();
+                this.initializeVanta();
+            }
+
+            applyTheme(theme) {
+                document.documentElement.setAttribute('data-theme', theme);
+                localStorage.setItem('taskhub-theme', theme);
+                this.currentTheme = theme;
                 
-                // Apply filters
-                let filteredTasks = tasks.filter(task => {
-                    if (filterStatus === 'all') return true;
-                    return task.status === filterStatus;
-                });
-                
-                // Apply sorting
-                filteredTasks.sort((a, b) => {
-                    switch(sortBy) {
-                        case 'reward-high':
-                            return b.reward - a.reward;
-                        case 'reward-low':
-                            return a.reward - b.reward;
-                        case 'urgent':
-                            return new Date(a.timeLimit) - new Date(b.timeLimit);
-                        case 'newest':
-                        default:
-                            return new Date(b.createdAt) - new Date(a.createdAt);
+                // Update all toggle button icons
+                const toggleButtons = document.querySelectorAll('.theme-toggle');
+                toggleButtons.forEach(btn => {
+                    if (!btn.classList.contains('mobile-theme-toggle')) {
+                        // Desktop button: just icon
+                        btn.innerHTML = theme === 'dark' 
+                            ? '<i class="fas fa-sun"></i>' 
+                            : '<i class="fas fa-moon"></i>';
+                    } else {
+                        // Mobile button: icon + text
+                        btn.innerHTML = theme === 'dark' 
+                            ? '<i class="fas fa-sun"></i><span>Light Mode</span>' 
+                            : '<i class="fas fa-moon"></i><span>Dark Mode</span>';
                     }
                 });
                 
-                taskCount.textContent = filteredTasks.length;
-                
-                if (filteredTasks.length === 0) {
-                    taskList.style.display = 'none';
-                    emptyState.style.display = 'flex';
-                } else {
-                    taskList.style.display = 'grid';
-                    emptyState.style.display = 'none';
-                    renderTasks(filteredTasks);
+                // Reinitialize Vanta with new colors
+                this.initializeVanta();
+            }
+
+            setupToggleListener() {
+                // Get all theme toggle buttons (desktop and mobile)
+                const toggleButtons = document.querySelectorAll('.theme-toggle');
+                if (toggleButtons.length > 0) {
+                    toggleButtons.forEach(btn => {
+                        btn.addEventListener('click', () => {
+                            const newTheme = this.currentTheme === 'dark' ? 'light' : 'dark';
+                            this.applyTheme(newTheme);
+                        });
+                    });
                 }
-            } catch (error) {
-                taskList.innerHTML = '<div class="error">Failed to load tasks. Please refresh.</div>';
+            }
+
+            initializeVanta() {
+                // Don't initialize Vanta on mobile - it interferes with touch interactions
+                if (window.innerWidth <= 768) {
+                    if (window.vantaEffect) {
+                        window.vantaEffect.destroy();
+                    }
+                    return;
+                }
+
+                // Destroy existing effect if it exists
+                if (window.vantaEffect) {
+                    window.vantaEffect.destroy();
+                }
+
+                // Get theme colors from CSS variables
+                const root = document.documentElement;
+                const computedStyle = getComputedStyle(root);
+                const bgColorHex = computedStyle.getPropertyValue('--theme-vanta-bg').trim();
+                const lineColorHex = computedStyle.getPropertyValue('--theme-vanta-color').trim();
+
+                // Convert hex strings to numbers if they start with 0x
+                const bgColor = bgColorHex.startsWith('0x') ? parseInt(bgColorHex, 16) : 0x1a1a1a;
+                const lineColor = lineColorHex.startsWith('0x') ? parseInt(lineColorHex, 16) : 0x4a7c59;
+
+                // Initialize Vanta with theme-appropriate colors
+                window.vantaEffect = VANTA.NET({
+                    el: ".container",
+                    mouseControls: true,
+                    touchControls: true,
+                    gyroControls: false,
+                    minHeight: 200.00,
+                    minWidth: 200.00,
+                    scale: 1.00,
+                    scaleMobile: 1.00,
+                    color: lineColor,
+                    backgroundColor: bgColor
+                });
             }
         }
 
-        function renderTasks(tasks) {
-            const taskList = document.getElementById('taskList');
-            
-            taskList.innerHTML = tasks.map(task => `
-                <div class="task-card ${task.status}" data-task-id="${task.id}">
-                    <div class="task-header">
-                        <h3 class="task-title">${task.title}</h3>
-                        <span class="task-status status-${task.status}">${formatStatus(task.status)}</span>
-                    </div>
-                    
-                    <p class="task-description">${task.description}</p>
-                    
-                    <div class="task-meta">
-                        <div class="meta-item">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 16 14"></polyline>
-                            </svg>
-                            <span>Expires: ${formatTimeLimit(task.timeLimit)}</span>
-                        </div>
-                        <div class="meta-item">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
-                            </svg>
-                            <span>${task.postedByName}</span>
-                        </div>
-                    </div>
-                    
-                    <div class="task-footer">
-                        <div class="task-reward">
-                            <span class="reward-label">Reward:</span>
-                            <span class="reward-amount">₦${task.reward.toLocaleString()}</span>
-                        </div>
-                        <a href="task-detail.html?id=${task.id}" class="btn btn-secondary">View Details</a>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function formatStatus(status) {
-            const statusMap = {
-                'open': 'Open',
-                'in-progress': 'In Progress',
-                'completed': 'Completed'
-            };
-            return statusMap[status] || status;
-        }
-
-        function formatTimeLimit(timeLimit) {
-            const date = new Date(timeLimit);
-            const now = new Date();
-            const diffHours = Math.floor((date - now) / (1000 * 60 * 60));
-            
-            if (diffHours < 0) return 'Expired';
-            if (diffHours < 1) return 'Less than 1 hour';
-            if (diffHours < 24) return `${diffHours} hours`;
-            
-            const diffDays = Math.floor(diffHours / 24);
-            return `${diffDays} day${diffDays > 1 ? 's' : ''}`;
-        }
-
-        // Mock data function - we'll replace this with API calls later
-        async function getMockTasks() {
-            return [
-                {
-                    id: "1",
-                    title: "Laundry Pickup from Hostel A",
-                    description: "Need someone to pick up laundry from Hostel A and drop at the laundry service",
-                    reward: 500,
-                    postedBy: "user1",
-                    postedByName: "Chidi O.",
-                    timeLimit: "2024-12-28T18:00:00Z",
-                    status: "open",
-                    acceptedBy: null,
-                    createdAt: "2024-12-27T10:00:00Z"
-                },
-                {
-                    id: "2",
-                    title: "Assignment Typing - 5 Pages",
-                    description: "Need handwritten assignment typed in MS Word with proper formatting",
-                    reward: 1000,
-                    postedBy: "user2",
-                    postedByName: "Amara K.",
-                    timeLimit: "2024-12-29T12:00:00Z",
-                    status: "open",
-                    acceptedBy: null,
-                    createdAt: "2024-12-27T11:30:00Z"
-                },
-                {
-                    id: "3",
-                    title: "Room Cleaning - Quick Tidy",
-                    description: "Need my room tidied up before guests arrive. Just organizing and surface cleaning.",
-                    reward: 800,
-                    postedBy: "user1",
-                    postedByName: "Chidi O.",
-                    timeLimit: "2024-12-28T15:00:00Z",
-                    status: "in-progress",
-                    acceptedBy: "user3",
-                    createdAt: "2024-12-27T09:00:00Z"
-                }
-            ];
+        // Initialize theme manager when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => {
+                new ThemeManager();
+            });
+        } else {
+            new ThemeManager();
         }
     </script>
+    <script src="app.js"></script>
 </body>
 </html>

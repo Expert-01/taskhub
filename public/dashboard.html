@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TaskHub Provider Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="dashboard.css" />
 </head>
 <body>
@@ -11,90 +12,120 @@
   <div class="dashboard">
 
     <!-- Sidebar -->
-    <aside class="sidebar glass">
-      <h2 class="logo ">TaskHub</h2>
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-logo">
+          <i class="fas fa-th"></i>
+          <span>Dashboard</span>
+        </div>
+      </div>
 
-      <nav>
-        <a class="active">Dashboard</a>
-        <a>Available Tasks</a>
-        <a>My Tasks</a>
-        <a>Earnings</a>
-        <a>Profile</a>
-        <a>Settings</a>
+      <nav class="sidebar-nav">
+        <a href="#" class="nav-item active">
+          <i class="fas fa-th"></i>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-tasks"></i>
+          <span>Available Tasks</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-list"></i>
+          <span>My Tasks</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-coins"></i>
+          <span>Earnings</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+        <a href="#" class="nav-item">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
       </nav>
+
+      <div class="sidebar-footer">
+        <a href="#" class="nav-item logout">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Logout</span>
+        </a>
+      </div>
     </aside>
 
     <!-- Main Content -->
     <main class="main">
-      <header class="first_bar">
-        Dashboard
-        
-      </header>
-      <!-- Header -->
-      <header class="top-bar">
-        <h1 id="welcomeMessage"></h1>
-
-        <div class="status">
-          <span>Available</span>
-          <label class="switch">
-            <input type="checkbox" checked />
-            <span class="slider"></span>
-          </label>
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <h1>Dashboard</h1>
+        <div class="top-bar-actions">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="Search..." />
+          </div>
+          <button class="menu-btn">
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
-      </header>
+      </div>
 
-      <!-- Stats -->
-      <section class="stats">
-        <div class="stat-card glass">
-          <h3>Total Earnings</h3>
-          <p>₦52,400</p>
+      <!-- Welcome Section -->
+      <div class="welcome-section">
+        <h2 id="welcomeMessage">Hi John,</h2>
+      </div>
+
+      <!-- Stats Section -->
+      <section class="stats-section">
+        <div class="stat-card earnings-card">
+          <div class="stat-header">
+            <h3>TOTAL EARNINGS</h3>
+          </div>
+          <div class="stat-content">
+            <p class="stat-value">$1000</p>
+            <svg class="chart-line" viewBox="0 0 100 40" preserveAspectRatio="none">
+              <path d="M 0 35 Q 25 25, 50 20 T 100 10" stroke="#fff" stroke-width="2" fill="none" />
+            </svg>
+          </div>
         </div>
 
-        <div class="stat-card glass">
-          <h3>Tasks Completed</h3>
-          <p>18</p>
+        <div class="stat-card">
+          <h3>TASKS COMPLETED</h3>
+          <p class="stat-value">43</p>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 70%;"></div>
+          </div>
         </div>
 
-        <div class="stat-card glass">
-          <h3>Rating</h3>
-          <p>⭐ 4.8</p>
-        </div>
-
-        <div class="stat-card glass">
-          <h3>Active Tasks</h3>
-          <p>3</p>
+        <div class="stat-card">
+          <h3>ACTIVE TASKS</h3>
+          <p class="stat-value">100+</p>
         </div>
       </section>
 
-      <!-- Active Tasks -->
-      <section class="tasks glass">
-        <h2>Active Tasks</h2>
+      <!-- Available Tasks Section -->
+      <section class="available-tasks">
+        <h2>AVAILABLE TASKS</h2>
 
-        <div class="task">
-          <div>
-            <h4>Clean Hostel Room</h4>
-            <span>₦3,000 • UniPort</span>
-          </div>
-          <button>View</button>
-        </div>
-
-        <div class="task">
-          <div>
-            <h4>Deliver Assignment</h4>
-            <span>₦1,500 • Choba</span>
-          </div>
-          <button>View</button>
-        </div>
-
-        <div class="task">
-          <div>
+        <div class="task-item">
+          <div class="task-info">
             <h4>Laundry Service</h4>
-            <span>₦2,500 • RSU</span>
+            <p class="task-price">$3000 - $5000</p>
+            <p class="task-location">* University of Port Harcourt</p>
           </div>
-          <button>View</button>
+          <button class="view-btn">View</button>
+        </div>
+
+        <div class="task-item">
+          <div class="task-info">
+            <h4>Deliver Assignment</h4>
+            <p class="task-price">$3000 - $5000</p>
+            <p class="task-location">Rivers State University of Science and Technology</p>
+          </div>
+          <button class="view-btn">View</button>
         </div>
       </section>
-
     </main>
   </div>
 
