@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Config Test</title>
+</head>
+<body>
+    <h1>API Configuration Test</h1>
+    <div id="output"></div>
+    
+    <script src="config.js"></script>
+    <script>
+        const output = document.getElementById('output');
+        
+        output.innerHTML = `
+            <p><strong>Hostname:</strong> ${window.location.hostname}</p>
+            <p><strong>API_BASE_URL:</strong> ${window.API_BASE_URL}</p>
+            <p><strong>__BACKEND_API__:</strong> ${window.__BACKEND_API__ || 'undefined'}</p>
+            
+            <hr>
+            
+            <h2>Testing API Connection...</h2>
+            <p id="test-result">Loading...</p>
+        `;
+        
+        // Test the API
+        fetch(`${window.API_BASE_URL}/api/health`)
+            .then(r => r.json())
+            .then(data => {
+                document.getElementById('test-result').innerHTML = `
+                    <strong style="color: green;">✓ SUCCESS</strong><br>
+                    Backend is reachable at: ${window.API_BASE_URL}<br>
+                    Status: ${JSON.stringify(data)}
+                `;
+            })
+            .catch(err => {
+                document.getElementById('test-result').innerHTML = `
+                    <strong style="color: red;">✗ FAILED</strong><br>
+                    Error: ${err.message}<br>
+                    Tried URL: ${window.API_BASE_URL}/api/health
+                `;
+            });
+    </script>
+</body>
+</html>
