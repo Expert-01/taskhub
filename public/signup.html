@@ -6,6 +6,9 @@
     <title>Sign Up - TaskHub RSU</title>
     <link rel="stylesheet" href="auth.css">
   <link rel="stylesheet" href="style.css">
+  <!-- Environment config injected by build process (production only) -->
+  <script src="env-config.js"></script>
+  <script src="config.js"></script>
   <script>
         // Check if preloader has been shown in this session
         (function() {
@@ -274,7 +277,7 @@
                 submitBtn.disabled = true;
                 submitBtn.textContent = 'Creating account...';
                 
-                const response = await fetch('http://localhost:4000/api/auth/signup', {
+                const response = await fetch(`${window.API_BASE_URL}/api/auth/signup`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'

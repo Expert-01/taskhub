@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   try {
     // Fetch user data from protected endpoint
-    const response = await fetch('http://localhost:4000/api/user', {
+    const response = await fetch(`${window.API_BASE_URL}/api/user`, {
       headers: {
         'Authorization': `Bearer ${token}`
       }
