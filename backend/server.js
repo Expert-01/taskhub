@@ -8,9 +8,27 @@ dotenv.config();
 
 const app = express();
 
-// CORS Configuration - Restrict to frontend domain
+// CORS Configuration - Allow production and development origins
+const allowedOrigins = [
+  process.env.FRONTEND_URL || 'https://taskhub-alpha.vercel.app',
+  'http://localhost:3000',
+  'http://localhost:5000',
+  'http://127.0.0.1:3000',
+  'http://127.0.0.1:5000',
+  'http://localhost',
+  'http://127.0.0.1'
+];
+
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'http://localhost:3000',
+  origin: (origin, callback) => {
+    // Allow requests with no origin (like file:// or Thunder Client)
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      console.log(`CORS rejected origin: ${origin}`);
+      callback(new Error('CORS not allowed'));
+    }
+  },
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

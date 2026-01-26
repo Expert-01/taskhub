@@ -16,17 +16,13 @@ const API_CONFIG = {
     // 3. Check URL parameters for local override: ?local=true
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('local') === 'true') {
+      console.log('[TaskHub] Local override via URL parameter (?local=true)');
       return 'http://localhost:4000';
     }
     
-    // 4. If running on localhost and no local parameter, check for local backend
-    const hostname = window.location.hostname;
-    if ((hostname === 'localhost' || hostname === '127.0.0.1') && !urlParams.get('local')) {
-      // Default local development to local backend
-      return 'http://localhost:4000';
-    }
-    
-    // 5. Default to production backend for all other cases
+    // 4. DEFAULT: Use production backend for everything
+    // This ensures frontend always points to production API
+    console.log('[TaskHub] Using production backend (default)');
     return 'https://taskhub-rsu-api.onrender.com';
   }
 };
