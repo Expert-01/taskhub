@@ -13,18 +13,20 @@ const API_CONFIG = {
       return window.__BACKEND_API__;
     }
     
-    // 3. Production detection: If on Vercel, use production backend
-    const hostname = window.location.hostname;
-    if (hostname === 'taskhub-alpha.vercel.app') {
-      return 'https://taskhub-rsu-api.onrender.com';
-    }
-    
-    // 4. Local development fallback
-    if (hostname === 'localhost' || hostname === '127.0.0.1') {
+    // 3. Check URL parameters for local override: ?local=true
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('local') === 'true') {
       return 'http://localhost:4000';
     }
     
-    // 5. Default fallback for any other production domain
+    // 4. If running on localhost and no local parameter, check for local backend
+    const hostname = window.location.hostname;
+    if ((hostname === 'localhost' || hostname === '127.0.0.1') && !urlParams.get('local')) {
+      // Default local development to local backend
+      return 'http://localhost:4000';
+    }
+    
+    // 5. Default to production backend for all other cases
     return 'https://taskhub-rsu-api.onrender.com';
   }
 };
